@@ -31,27 +31,33 @@ document.querySelector('#nextJoke').addEventListener('click', function () {
                 "date": date
             });
             position += 1;
+            console.log('Next Joke list');
             console.log(reportAcudits);
-            console.log(position);
         });
     }
 });
 document.querySelector('.score1').addEventListener('click', function () {
-    reportAcudits[position].score = 1;
-    correcto = true;
-    document.querySelector('#peticion').innerHTML = '';
-    console.log(reportAcudits[position]);
+    if (reportAcudits[position].score != 1) {
+        reportAcudits[position].score = 1;
+        correcto = true;
+        document.querySelector('#peticion').innerHTML = '';
+        console.log(reportAcudits[position]);
+    }
 });
 document.querySelector('.score2').addEventListener('click', function () {
-    reportAcudits[position].score = 2;
-    correcto = true;
-    document.querySelector('#peticion').innerHTML = '';
-    console.log(reportAcudits[position]);
+    if (reportAcudits[position].score != 2) {
+        reportAcudits[position].score = 2;
+        correcto = true;
+        document.querySelector('#peticion').innerHTML = '';
+        console.log(reportAcudits[position]);
+    }
 });
 document.querySelector('.score3').addEventListener('click', function () {
-    reportAcudits[position].score = 3;
-    correcto = true;
-    document.querySelector('#peticion').innerHTML = '';
-    console.log(reportAcudits[position]);
+    if (reportAcudits[position].score != 3) {
+        reportAcudits[position].score = 3;
+        correcto = true;
+        document.querySelector('#peticion').innerHTML = '';
+        console.log(reportAcudits[position]);
+    }
 });
 // console.log(reportAcudits);
