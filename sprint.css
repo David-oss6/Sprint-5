@@ -1,0 +1,34 @@
+* {
+    font-size: 30px;
+    color: darkblue;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+body {
+    background-color: lightgrey;
+}
+
+#nextJoke {
+    background-color: aqua;
+    font-weight: bold;
+    display: block;
+    margin-left: 42%;
+    margin-bottom: 30px;
+}
+
+p {
+    color: black;
+    font-size: 16px;
+
+}
+
+#peticion {
+    color: red;
+}
+
+.score {
+    color: black;
+    background-color: lightsalmon;
+    margin: 10px;
+}

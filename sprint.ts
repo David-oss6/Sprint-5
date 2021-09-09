@@ -1,21 +1,55 @@
-// - Exercici 1
-document.querySelector('#nextJoke').addEventListener('click', () => {
-    fetch('http://icanhazdadjoke.com/', {
-        headers: {
-            "Content-Type": "application/json"
-        },
+// - Exercici 1 i 2
+var reportAcudits: object = [];
+var position: number = -1;
+var correcto: boolean = false;
+
+if (correcto == true) {
+    document.querySelector('#nextJoke').addEventListener('click', () => {
+        fetch('https://icanhazdadjoke.com/', {
+            headers: {
+                'Accept': 'application/json',
+            }
+        })
+            .then(res => {
+                return res.json();
+            })
+            .then(function (res) {
+                document.querySelector('#printJoke').innerHTML = `${res.joke}`;
+                reportAcudits = [
+                    {
+                        joke: res.joke,
+                        score: 0,
+                        date: Date,
+                    }
+                ]
+                position += 1;
+                correcto = false;
+            });
     })
-        .then(res => res.json())
-        .then(res => console.log(res))
+} else {
+    document.querySelector('#peticion').innerHTML = 'Please rate the Joke'
+}
+
+document.querySelector('.score1').addEventListener('click', () => {
+    reportAcudits[position].score = 1;
+    correcto = true;
+})
+
+document.querySelector('.score2').addEventListener('click', () => {
+    var score: number = 2;
+    reportAcudits[position].score = 2;
+    correcto = true;
+})
+
+document.querySelector('.score3').addEventListener('click', () => {
+    var score: number = 3;
+    reportAcudits[position].score = 3;
+    correcto = true;
+})
 
 
-});
-// document.querySelector('#printJoke').innerHTML = '';
 
 
-// document.querySelector('#nextJoke').addEventListener('click', async function nextJoke() {
-//     const result = await fetch('https://icanhazdadjoke.com/');
-//     const res = await result.json();
-//     console.log(res);
-// });
-let numero: number = 5;
+
+
+
