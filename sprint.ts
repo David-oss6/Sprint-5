@@ -13,7 +13,7 @@ date.toISOString();
 
 document.querySelector('#nextJoke').addEventListener('click', () => {
     if (correcto == false && position >= 0) {
-        document.querySelector('#peticion').innerHTML = 'PLease rate the Joke'
+        document.querySelector('#peticion').innerHTML = 'Please rate the Joke'
     } else {
         correcto = false;
         fetch('https://icanhazdadjoke.com/', {
@@ -41,29 +41,33 @@ document.querySelector('#nextJoke').addEventListener('click', () => {
 
     }
 
-    document.querySelector('.score1').addEventListener('click', () => {
-        reportAcudits[position].score = 1;
-        correcto = true;
-        console.log(reportAcudits[position])
-    })
 
-    document.querySelector('.score2').addEventListener('click', () => {
-        reportAcudits[position].score = 2;
-        correcto = true;
-        console.log(reportAcudits[position])
-    })
-
-    document.querySelector('.score3').addEventListener('click', () => {
-        reportAcudits[position].score = 3;
-        correcto = true;
-        console.log(reportAcudits[position])
-    })
 
 
 })
+document.querySelector('.score1').addEventListener('click', () => {
+    reportAcudits[position].score = 1;
+    correcto = true;
+    document.querySelector('#peticion').innerHTML = '';
+    console.log(reportAcudits[position])
+})
+
+document.querySelector('.score2').addEventListener('click', () => {
+    reportAcudits[position].score = 2;
+    correcto = true;
+    document.querySelector('#peticion').innerHTML = '';
+    console.log(reportAcudits[position])
+})
+
+document.querySelector('.score3').addEventListener('click', () => {
+    reportAcudits[position].score = 3;
+    correcto = true;
+    document.querySelector('#peticion').innerHTML = '';
+    console.log(reportAcudits[position])
+})
 
 
-console.log(reportAcudits);
+// console.log(reportAcudits);
 
 
 
