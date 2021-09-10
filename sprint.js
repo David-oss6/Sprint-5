@@ -14,26 +14,50 @@ document.querySelector('#nextJoke').addEventListener('click', function () {
         document.querySelector('#peticion').innerHTML = 'Please rate the Joke';
     }
     else {
-        correcto = false;
-        fetch('https://icanhazdadjoke.com/', {
-            headers: {
-                'Accept': 'application/json'
-            }
-        })
-            .then(function (res) {
-            return res.json();
-        })
-            .then(function (res) {
-            document.querySelector('#printJoke').innerHTML = "" + res.joke;
-            reportAcudits.push({
-                "joke": res.joke,
-                "score": 0,
-                "date": date
+        if (position % 2 == 0) {
+            correcto = false;
+            fetch('https://icanhazdadjoke.com/', {
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+                .then(function (res) {
+                return res.json();
+            })
+                .then(function (res) {
+                document.querySelector('#printJoke').innerHTML = "" + res.joke;
+                reportAcudits.push({
+                    "joke": res.joke,
+                    "score": 0,
+                    "date": date
+                });
+                position += 1;
+                console.log('Next Joke list');
+                console.log(reportAcudits);
             });
-            position += 1;
-            console.log('Next Joke list');
-            console.log(reportAcudits);
-        });
+        }
+        else {
+            correcto = false;
+            fetch('https://api.chucknorris.io/jokes/random', {
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+                .then(function (res) {
+                return res.json();
+            })
+                .then(function (res) {
+                document.querySelector('#printJoke').innerHTML = "" + res.value;
+                reportAcudits.push({
+                    "joke": res.value,
+                    "score": 0,
+                    "date": date
+                });
+                position += 1;
+                console.log('Next Joke list');
+                console.log(reportAcudits);
+            });
+        }
     }
 });
 document.querySelector('.score1').addEventListener('click', function () {
@@ -67,5 +91,6 @@ fetch('https://api.openweathermap.org/data/2.5/onecall?lat=41.38&lon=2.16&exclud
     return res.json();
 })
     .then(function (res) {
-    document.querySelector('#forecast').innerHTML = res;
+    document.querySelector('#forecast').innerHTML = "" + res.alerts[0].description;
+    console.log(res);
 });
