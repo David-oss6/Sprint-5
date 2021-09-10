@@ -85,7 +85,7 @@ document.querySelector('.score3').addEventListener('click', function () {
     }
 });
 // console.log(reportAcudits);
-//      Nivell 2 Exercici 4 *************************
+//      Nivell 2 Exercici 4 i 5  *************************
 fetch('https://api.openweathermap.org/data/2.5/onecall?lat=41.38&lon=2.16&exclude=hourly,daily&appid=972056032b2d7a22b30500165a06d9d9')
     .then(function (res) {
     return res.json();
@@ -94,3 +94,4 @@ fetch('https://api.openweathermap.org/data/2.5/onecall?lat=41.38&lon=2.16&exclud
     document.querySelector('#forecast').innerHTML = "" + res.alerts[0].description;
     console.log(res);
 });
+// Nivell 3 Exercici 6 **************************
