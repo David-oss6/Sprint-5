@@ -111,12 +111,18 @@ fetch('https://api.openweathermap.org/data/2.5/onecall?lat=41.38&lon=2.16&exclud
         return res.json();
     })
     .then(function (res) {
-        document.querySelector('#forecast').innerHTML = `${res.alerts[0].description}`;
-        console.log(res)
+        var celsius: number | string = ((res.current.temp) - 273.15);
+        celsius = celsius.toString();
+        celsius = celsius.slice(0, 4);
+        celsius = parseInt(celsius);
+        var mainWeather: string = (res.current.weather[0].description);
+        mainWeather = mainWeather.charAt(0).toUpperCase() + mainWeather.slice(1);
+        document.querySelector('#forecast').innerHTML = `${mainWeather} <br> ${celsius}º`;
+        console.log(mainWeather)
     })
 
 
-    // Nivell 3 Exercici 6 **************************
+
 
 
 

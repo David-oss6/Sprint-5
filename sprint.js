@@ -91,7 +91,12 @@ fetch('https://api.openweathermap.org/data/2.5/onecall?lat=41.38&lon=2.16&exclud
     return res.json();
 })
     .then(function (res) {
-    document.querySelector('#forecast').innerHTML = "" + res.alerts[0].description;
-    console.log(res);
+    var celsius = ((res.current.temp) - 273.15);
+    celsius = celsius.toString();
+    celsius = celsius.slice(0, 4);
+    celsius = parseInt(celsius);
+    var mainWeather = (res.current.weather[0].description);
+    mainWeather = mainWeather.charAt(0).toUpperCase() + mainWeather.slice(1);
+    document.querySelector('#forecast').innerHTML = mainWeather + " <br> " + celsius + "\u00BA";
+    console.log(mainWeather);
 });
-// Nivell 3 Exercici 6 **************************
