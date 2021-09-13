@@ -54,7 +54,7 @@ document.querySelector('#nextJoke').addEventListener('click', function () {
                     "date": date
                 });
                 position += 1;
-                console.log('Next Joke list');
+                console.log('Next Joke list:');
                 console.log(reportAcudits);
             });
         }
@@ -98,5 +98,5 @@ fetch('https://api.openweathermap.org/data/2.5/onecall?lat=41.38&lon=2.16&exclud
     var mainWeather = (res.current.weather[0].description);
     mainWeather = mainWeather.charAt(0).toUpperCase() + mainWeather.slice(1);
     document.querySelector('#forecast').innerHTML = mainWeather + " <br> " + celsius + "\u00BA";
-    console.log(mainWeather);
+    // 
 });
