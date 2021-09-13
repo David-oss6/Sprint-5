@@ -1,20 +1,15 @@
 * {
-    font-size: 30px;
+    font-size: 20px;
     color: darkblue;
-    font-family: sans-serif;
+    
     text-align: center;
 }
 
-body {
-    background-color: lightgrey;
-}
-
 #nextJoke {
-    background-color: aqua;
+    
     font-weight: bold;
-    display: block;
-    margin-left: 42%;
-    margin-bottom: 30px;
+    
+    
 }
 
 p {
@@ -25,10 +20,18 @@ p {
 
 #peticion {
     color: red;
+    font-weight: bold;
 }
 
 .score {
     color: black;
     background-color: lightsalmon;
-    margin: 10px;
+    
+}
+
+.backgroundJoke {
+    background-image: url("img/background_jokes.svg") ;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
