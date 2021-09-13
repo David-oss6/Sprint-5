@@ -32,7 +32,30 @@
     color: #c3950a ;
     
 }
+  /****************** CARAS */
+.lolFace {
+    position: absolute;
+    height: 55px;
+}
 
+.lol1 {
+    left: 10%;
+}
+
+.lol2 {
+    top: 15%;
+    right: 5%;
+}
+.lol3 {
+    top: 75%;
+    left: 75%;
+}
+
+.lol4{
+    left: 17%;
+    top: 60%;
+}
+/****************** CARAS */
 #nextJoke {
     
     font-weight: bold;
@@ -77,5 +100,20 @@ p {
 #forecast {
     padding-top: 15px; 
     color: #c3950a ;
+}
+
+.lol1 {
+    top: 25%;
+}
+
+.lol3 {
+    top: -75%;
+    left: 75%;
+    
+}
+
+.lol4{
+    left: -17%;
+    top: 60%;
 }
 }
