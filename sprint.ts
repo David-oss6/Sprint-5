@@ -35,10 +35,12 @@ document.querySelector('#nextJoke').addEventListener('click', () => {
                             "date": date,
                         }
                     );
-
+                    replaceBlob();
                     position += 1;
-                    console.log('Next Joke list')
+                    console.log('Next Joke list:')
                     console.log(reportAcudits)
+                    if (positon == 3) { replaceMeteo() }
+
 
                 })
         } else {
@@ -60,7 +62,7 @@ document.querySelector('#nextJoke').addEventListener('click', () => {
                             "date": date,
                         }
                     );
-
+                    replaceBlob();
                     position += 1;
                     console.log('Next Joke list:')
                     console.log(reportAcudits)
@@ -111,15 +113,36 @@ fetch('https://api.openweathermap.org/data/2.5/onecall?lat=41.38&lon=2.16&exclud
         return res.json();
     })
     .then(function (res) {
+
+
+        if ((res.current.weather[0].main) == 'Clouds') {
+            document.querySelector('#iconoMeteo').className = "nube position-absolute top-0 start-0";
+        }
+        if ((res.current.weather[0].main) == 'Sun') {
+            document.querySelector('#iconoMeteo').className = "sol position-absolute top-0 start-0";
+        }
         var celsius: number | string = ((res.current.temp) - 273.15);
         celsius = celsius.toString();
         celsius = celsius.slice(0, 4);
         celsius = parseInt(celsius);
         var mainWeather: string = (res.current.weather[0].description);
         mainWeather = mainWeather.charAt(0).toUpperCase() + mainWeather.slice(1);
-        document.querySelector('#forecast').innerHTML = `${mainWeather} <br> ${celsius}º`;
-        // 
+        document.querySelector('#forecast').innerHTML = `${mainWeather} || ${celsius}º`;
+        console.log(res)
+        console.log(res.current.weather[0].main)
+
     })
+
+// Exercici 6 ***********************************
+
+function replaceBlob() {
+    var a = Math.floor(Math.random() * 4) + 1;
+    var blobClass = `blob${a}`;
+    document.querySelector('#blob').className = blobClass;
+
+}
+
+function replaceMeteo(res) { res.current.weather[0].main = 'Sun'; }
 
 
 
